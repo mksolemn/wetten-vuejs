@@ -1,0 +1,25 @@
+@mixin inset-shadow($shadow-color: $color-inset-shadow) {
+    -webkit-box-shadow: inset 0px 1px 5px 0px $shadow-color;
+    -moz-box-shadow: inset 0px 1px 5px 0px $shadow-color;
+    box-shadow: inset 0px 1px 5px 0px $shadow-color;
+}
+
+@mixin outter-shadow($shadow-color: $color-outter-shadow) {
+    -webkit-box-shadow: 0px 0px 1px 0px $shadow-color;
+    -moz-box-shadow: 0px 0px 1px 0px $shadow-color;
+    box-shadow: 0px 0px 1px 0px $shadow-color;
+}
+
+@mixin bottom-shadow($shadow-size: 30px, $shadow-color:$color-outter-shadow) {
+    -webkit-box-shadow: 0px 8px $shadow-size -1px rgba(239, 239, 242, 1);
+    -moz-box-shadow: 0px 8px $shadow-size -1px rgba(239, 239, 242, 1);
+    box-shadow: 0px 8px $shadow-size -1px rgba(239, 239, 242, 1);
+}
+
+@mixin btnInput($text-color:$color-secondary-text,$bg-color:$color-primary-bg){
+        color: $text-color;
+        background: $bg-color;
+        &:hover {
+            background: darken($bg-color, 5%);
+        }
+}

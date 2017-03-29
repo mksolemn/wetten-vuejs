@@ -1,0 +1,39 @@
+.filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    input,
+    button {
+        margin-top: 10px;
+    }
+    li {
+        flex-grow: 1;
+        flex-shrink: 0;
+        width: 25%;
+        align-self: flex-end;
+        min-width: 180px;
+        .inner {
+            margin: 20px 15px 20px 0px;
+        }
+    }
+}
+
+.text-bar {
+    font-size: 1.8em;
+    color: $color-secondary-text;
+    strong {
+        color: $color-primary-heading;
+    }
+}
+
+.profile-list {
+    display:flex;
+    flex-wrap: wrap;
+    >* {
+        width: 50%;
+        min-width: 340px;
+        padding: 6px;
+        flex-shrink:1;
+        flex-grow:1;
+    }
+}

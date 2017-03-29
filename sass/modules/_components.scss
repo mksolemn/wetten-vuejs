@@ -1,0 +1,134 @@
+.box {
+    border-radius: 10px;
+    background: $white;
+    padding: 20px 40px;
+}
+
+.badge {
+    background: $color-secondary-bg;
+    color: $color-secondary-text;
+    display: inline-block;
+    &:before {
+        font-family:FontAwesome;
+        position: absolute;
+    }
+    &.round {
+        border-radius: 50%;
+        min-width: $badge-round-size;
+        min-height: $badge-round-size;
+        text-align: center;
+        >* {
+            line-height: $badge-round-size;
+        }
+    }
+    &.corner {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 60px 60px 0;
+        background: transparent;
+        border-color: transparent $color-secondary-bg transparent transparent;
+        
+    }
+    &.fav {
+        cursor: pointer;
+        &:before {
+            content:'\f005';
+            font-size: 1.2em;
+            right: -50px;
+            top: 8px;
+            color: darken($color-secondary-bg, 10%);
+        }
+        &.faved {
+            &:before {
+                color: $color-highlight;
+            }
+        }
+    }
+}
+
+.profile-item {
+    .inner {
+        padding: 25px;
+        border-radius: 10px;
+        background: $white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-shrink: 1;
+        overflow: hidden;
+        position: relative;
+        >div {
+            width: 50%;
+            &:last-child {
+                width: 100%;
+            }
+        }
+        .left {
+            padding-right: 15px;
+        }
+        .right {
+            padding-left: 15px;
+        }
+        .image-wrapper {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 50%;
+                max-width: 195px;
+            }
+        }
+        .profile-specs {
+            margin-top: 25px;
+        }
+    }
+}
+
+.card-footer {
+    display: flex;
+    margin-top: 25px;
+    padding-top: 25px;
+    border-top: solid 2px #f5f5f8;
+    >* {
+        margin: 0px 8px;
+        &:first-child {
+            margin-left: 0px;
+        }
+        &:last-child {
+            margin-right: 0px;
+        }
+    }
+}
+
+.profile-specs {
+    display: flex;
+    flex-direction: column;
+    .specs-item {
+        display: flex;
+        align-items: center;
+        margin: 6px 0px;
+        >* {
+            margin-right: 12px;
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
+        &:first-child {
+            margin-top: 0px;
+        }
+        &:last-child {
+            margin-bottom: 0px;
+        }
+        p {
+            color: $color-primary-text;
+        }
+    }
+}
+
+.corner-badge {}

@@ -1,0 +1,68 @@
+input,
+button {
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: $font-size-primary;
+    transition: all ease-in-out .25s;
+    cursor: pointer;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 1);
+    &.green {
+        background: $color-highlight;
+        color: $white;
+        &:hover {
+            background: darken($color-highlight, 5%);
+        }
+    }
+    &::-webkit-input-placeholder {
+        color: $color-primary-text;
+    }
+    &::-moz-placeholder {
+        color: $color-primary-text;
+    }
+    &:-ms-input-placeholder {
+        color: $color-primary-text;
+    }
+    &:-moz-placeholder {
+        color: $color-primary-text;
+    }
+    @include inset-shadow();
+    @include btnInput();
+}
+
+.input-wrap {
+    position: relative;
+    input {
+        padding-left: 55px;
+    }
+    &:before {}
+    &.search {
+        &:before {
+            content: '\f002';
+            font-family: FontAwesome;
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            font-size: 1.5em;
+            color: $color-secondary-text;
+        }
+    }
+}
+
+.btn {
+    &.profile-ico {
+        font-size: 1.5em;
+        &.faved {
+            >:before {
+                color: $color-highlight;
+            }
+        }
+    }
+    &.slim {
+        padding: 10px 20px;
+    }
+}
+
+select {
+    @extend input;
+}

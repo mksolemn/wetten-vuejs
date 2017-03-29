@@ -1,0 +1,23 @@
+body {
+    background: $color-primary-bg;
+}
+
+h1,h2,h3,h4,h5 {color:$color-primary-heading;}
+
+section {
+    padding: 15px 20px;
+    @include bottom-shadow();
+    &.grey {
+        background: $color-primary-bg;
+    }
+}
+
+label {
+    font-size: $font-size-primary;
+    font-weight: 600;
+    color: $color-primary-heading;
+}
+
+.block-bg {
+    background: $white;
+}

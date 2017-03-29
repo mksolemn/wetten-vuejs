@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
+    <link href="css/app.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="profiles">
+        <section class="search-bar block-bg">
+            <div class="input-wrap search">
+                <input type="text" name="search" value="Search..." v-model="search">
+            </div>
+        </section>
+
+        <section class="filters">
+            <form>
+                <ul class="filter-wrapper box">
+                    <li>
+                        <div class="inner">
+                            <label>Project name</label>
+                            <input type="text" paceholder="Enter name or URL">
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <label>Platform</label>
+                            <select v-model="selectedPlatform">
+                            <option value="-1">All</option>
+                            <option value="youtube">Youtube</option>
+                            <option value="vimeo">Vimeo</option>
+                            <option value="facebook">Facebook</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <label>Genre</label>
+                            <select v-model="selectedGenre">
+                            <option value="-1">All</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="action">Action</option>
+                            <option value="thriller">Thriller</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <label>Status</label>
+                            <select v-model="selectedStatus">
+                            <option value="-1"></option>
+                            <option value="true">Available</option>
+                            <option value="false">Unavailable</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <label>Subscribers</label>
+                            <select>
+                            <option value="1k-10k">1K - 10K</option>
+                            <option value="10k-20k">10K - 20K</option>
+                            <option value="20k-50k">20K - 50K</option>
+                            <option value="50k-100k">50K - 100K</option>
+                            <option value="100k-500k">100K - 500K</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                            <label>Views</label>
+                            <select>
+                            <option value="100k-500k">100K - 500K</option>
+                            <option value="10k-20k">10K - 20K</option>
+                            <option value="500m-1m">500M - 1M</option>
+                            <option value="1m-300m">1M - 300M</option>
+                            <option value="300m">300M+</option>
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="inner">
+                        <button type="submit" class="btn big green">Search</button>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+        </section>
+        <section class="text-bar grey">
+            <strong>12,865 Prospects</strong> match your criteria
+        </section>
+        <section class="profile-list grey">
+            <div class="profile-item white" v-for="profile in filteredProfiles">
+                <div class="inner">
+                    <span :data-id="profile._id" class="badge corner fav" @click="addFav($event)"></span>
+                    <div class="left">
+                        <div class="image-wrapper round">
+                            <img :src="profile.picture" alt="Profile Image">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="profile-name">
+                            <h2>{{ profile.name.first }} {{ profile.name.last }}</h2>
+                        </div>
+                        <ul class="profile-specs">
+                            <li class="specs-item">
+                                <span class="badge round"><i class="fa fa-users" aria-hidden="true"></i></span>
+                                <span><p>Followers</p><p><strong>{{profile.followers | formatNumber}}</strong></p></span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="badge round"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                                <span><p>Views</p><p><strong>{{profile.views | formatNumber}}</strong></p></span>
+                            </li>
+                            <li class="specs-item">
+                                <span class="badge round"><i class="fa fa-play-circle" aria-hidden="true"></i></span>
+                                <span><p>Videos</p><p><strong>{{profile.videos | formatNumber}}</strong></p></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn slim grey">View profile</button>
+                        <button :data-id="profile._id" @click="addFriend($event)" class="btn slim icon profile-ico grey"><i class="fa fa-user-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/vue.resource/1.2.1/vue-resource.min.js"></script>
+<script src="js/app.js"></script>
+
+</html>
